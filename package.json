@@ -1,17 +1,21 @@
 {
-  "name": "BACKENDPROJECT",
+  "name": "BACKNDPROJECT",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "CollectDB.js",
   "scripts": {
     "format": "prettier --write *.js",
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "install": "^0.13.0",
+    "mongoose": "^8.3.2",
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5",
     "sequelize": "^6.37.3",
