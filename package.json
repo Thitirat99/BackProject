@@ -5,8 +5,8 @@
   "main": "CollectDB.js",
   "scripts": {
     "format": "prettier --write *.js",
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node SRC/CollectDB.js",
+    "dev": "nodemon SRC/apCollectDB.js"
   },
   "keywords": [],
   "author": "",
