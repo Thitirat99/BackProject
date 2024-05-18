@@ -1,6 +1,6 @@
-var express = require("express")
-var Sequelize = require("sequelize")
-var app = express()
+const express = require("express")
+const Sequelize = require("sequelize")
+const app = express()
 
 app.use(express.json())
 
@@ -210,6 +210,7 @@ app.delete("/Patients/:Patient_ID", (req, res) => {
         res.status(500).send(err);
       });
   });
+
   
 
 //-----get-----post-----put-----delete-----MedicalHistory//
@@ -267,22 +268,12 @@ app.put("/MedicalHistory/:MedicalHistory_ID", (req, res) => {
 })
 
 app.delete("/MedicalHistory/:MedicalHistory_ID",(req,res) =>{
-    MedicalHistory.destroy({
-        where:{
-            MedicalHistory_ID: req.params.MedicalHistory_ID
-        }
-    })
-    MedicalHistory.destroy({
-        where:{
-            MedicalHistory_ID: req.params.MedicalHistory_ID
-        }
-    })
-
-    MedicalHistory.findByPk(req.params.MedicalHistory_ID).then((MedicalHistorys) =>{
-        if(!MedicalHistorys){
-            res.status.send("MedicalHistory not found")
+    MedicalHistory.findByPk(req.params.MedicalHistory_ID)
+      .then((medicalHistory) =>{
+        if(!medicalHistory){
+            res.status(404).send("MedicalHistory not found")
         }else{
-            MedicalHistorys.destroy().then(() =>{
+            medicalHistory.destroy().then(() =>{
                 res.send({})
             }).catch((err) =>{
                 res.status(500).send(err)
@@ -307,7 +298,7 @@ app.get("/Diseases/Disease_ID",(req,res) =>{
     Diseases.findByPk(req.params.Disease_ID)
     .then((diseases) =>{
         if (!diseases){
-            res.status(404).send("Disease not found")
+            res.status(404).send("Disease not fou3 nd")
         } else {
             res.json(diseases)
         }
@@ -399,5 +390,5 @@ app.delete("/Diseases/:Disease_ID", (req, res) => {
   });
 
 
-const port = process.env.PORT || 5000;
-app.listen(port,() => console.log (`Listening on port ${port}`));
+const port = process.env.PORT || 3000;
+app.listen(port,() => console.log (`Server is running on port ${port}`));
